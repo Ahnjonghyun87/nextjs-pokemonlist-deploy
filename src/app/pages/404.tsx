@@ -1,16 +1,11 @@
+"use client";
+
 import Image from "next/image";
 
-interface ErrorPageProps {
-  statusCode?: number;
-}
-
-const ErrorPage = ({ statusCode }: ErrorPageProps) => {
+export default function Custom404() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
-      <h1 className="text-4xl font-bold text-red-500 mb-4">
-        {statusCode ? `Error ${statusCode}` : "An error occurred on client"}
-      </h1>
-      <p className="text-xl mb-4">무언가 잘못되었습니다.</p>
+      <p className="text-xl mb-4">404 error!!</p>
       <Image
         src="/images/pixel_art_pikachu.png"
         alt="Error Image"
@@ -23,6 +18,4 @@ const ErrorPage = ({ statusCode }: ErrorPageProps) => {
       </a>
     </div>
   );
-};
-
-export default ErrorPage;
+}
