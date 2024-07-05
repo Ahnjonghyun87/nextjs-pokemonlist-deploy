@@ -22,7 +22,7 @@ const PokemonDetailPage = async ({ params }: { params: { id: string } }) => {
           key={pokemon.id}
           className="p-4 border rounded-lg flex flex-col items-center"
         >
-          <h1>No. {pokemon.id.toString().padStart(3, "0")}</h1>
+          <h1>No. {pokemon.id.toString().padStart(4, "0")}</h1>
           <Image
             src={pokemon.sprites.front_default}
             alt={pokemon.korean_name}
