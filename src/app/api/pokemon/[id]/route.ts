@@ -16,7 +16,6 @@ export const GET = async (
     const koreanName = speciesResponse.data.names?.find(
       (name: any) => name.language.name === "ko"
     );
-    const cries = speciesResponse.data.cries;
 
     const typesWithKoreanNames = await Promise.all(
       response.data.types.map(async (type: any) => {
@@ -54,25 +53,12 @@ export const GET = async (
       })
     );
 
-    // const statWithKoreanNames = await Promise.all(
-    //   response.data.stats.map(async (stat: any) => {
-    //     const statResponse = await axios.get(stat.stat.url);
-    //     const koreanStatName =
-    //       statResponse.data.names?.find(
-    //         (name: any) => name.language.url === "ko"
-    //       )?.name || stat.stat.name;
-    //     return { ...stat, stat: { ...stat.stat, korean_name: koreanStatName } };
-    //   })
-    // );
-
     const pokemonData = {
       ...response.data,
       korean_name: koreanName?.name || response.data.name,
       types: typesWithKoreanNames,
       abilities: abilitiesWithKoreanNames,
       moves: movesWithKoreanNames,
-      // stats: statWithKoreanNames,
-      cries: cries,
     };
 
     return NextResponse.json(pokemonData);

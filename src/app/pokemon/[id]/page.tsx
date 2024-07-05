@@ -36,13 +36,6 @@ const PokemonDetailPage = async ({ params }: { params: { id: string } }) => {
             <p>무게 {pokemon.weight / 10} kg</p>
           </div>
 
-          {pokemon.cries && pokemon.cries.latest && (
-            <audio controls className="mt-4">
-              <source src={pokemon.cries.latest} type="audio/ogg" />
-              Your browser does not support the audio element.
-            </audio>
-          )}
-
           <div className="flex">
             <h1 className="p-4 font-bold">타입:</h1>
             {pokemon.types.map((type) => {
