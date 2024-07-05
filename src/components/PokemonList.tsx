@@ -67,7 +67,7 @@ const PokemonListPage = () => {
         {pokemons.map((pokemon) => (
           <div
             key={pokemon.id}
-            className="pokemon p-4 border rounded-lg flex flex-col items-center"
+            className="pokemon p-4 border rounded-lg flex flex-col items-center text-center"
           >
             <Link href={`/pokemon/${pokemon.id}`}>
               <Image
